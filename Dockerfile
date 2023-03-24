@@ -27,7 +27,7 @@ RUN pwd
 RUN python3 -m pip install --upgrade pip==21.2.2 && \
     pip3 install -r requirements.txt
 
-RUN pip3 install torch==1.12.0+cu116 torchvision==0.13.0+cu116 -f https://download>
+RUN pip3 install torch==1.12.0+cu116 torchvision==0.13.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
 
 
 ENTRYPOINT []
