@@ -43,7 +43,7 @@ print("Acc", result)
 # print("Method_acc", method_acc, file=file)
 
 
-######################## Task 2 ############################
+# ######################## Task 2 ############################
 task_name = 'task2'
 
 print("Task 2", file=file)
@@ -64,8 +64,10 @@ print("Step 3 completed", file=file)
 
 print("Step 4: Evaluate", file = file)
 from util import read_data
+import json
+from sklearn.metrics import *
 print("Evaluating task 2")
-pred = pd.read_csv('df_answer_task2.csv')
+pred = json.load(open('docnli_task2.txt'))
 df = read_data(task_name)
 ground_truth = df['genuine'].to_list()
 print("Accuracy:", accuracy_score(ground_truth, pred))

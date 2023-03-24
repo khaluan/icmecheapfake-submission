@@ -34,7 +34,7 @@ def get_image(filename):
 def crawler_main(task_name):
     data = read_data(task_name)
     images_id = [get_image(name['img_local_path']) for name in data]
-    print(images_id)
+    # print(images_id)
     
     with open(f'./Output/url_{task_name}.txt', 'w+', encoding='utf8') as file:
         for datapoint in tqdm(data):
@@ -43,7 +43,8 @@ def crawler_main(task_name):
                 result = reverse_image_search_try_catch(datapoint['img_local_path'])
                 result = preprocess_post(result, remove_irrelevant=True)
             except Exception as e:
-                print(e)
+                # print(e)
+                pass
             file.write(str(result))
             file.write('\n')
         
@@ -115,5 +116,6 @@ def crawler_main(task_name):
                 if content['heading'] == '' and content['context'] == '':
                     remove(filename)
         except Exception as e:
-            print(e)
-            print(filename)
+            # print(e)
+            pass
+            # print(filename)
