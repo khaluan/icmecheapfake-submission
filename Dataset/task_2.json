@@ -1,0 +1,22 @@
+[
+    {
+      "img_local_path": "images_task_2/2.jpg",
+      "caption": "53,000 dead people turned up on the state�s voter rolls in November 2018.",
+      "genuine": 1
+    },
+    {
+      "img_local_path": "images_task_2/20.jpg",
+      "caption": "Opposition presidential candidate in the Democratic Republic of Congo Martin Fayulu walks outside the constitutional court in the capital, Kinshasa on January 12, 2019, as he filed his appeal to impose a recount of the votes in the presidential election following a suspicion of fraud.",
+      "genuine": 0
+    },
+    {
+      "img_local_path": "images_task_2/58.jpg",
+      "caption": "And on Wednesday, cars wait patiently for a giraffe to cross the road in Kenya's Kimana Sanctuary.",
+      "genuine": 0
+    },
+    {
+      "img_local_path": "images_task_2/65.jpg",
+      "caption": "Policemen stand guard near the state secretariat anticipating protests following reports of two women of menstruating age entering the Sabarimala temple, one of the world's largest Hindu pilgrimage sites, in Thiruvananthapuram, Kerala, India, last week.",
+      "genuine": 0
+    }
+]
