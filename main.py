@@ -25,11 +25,10 @@ from COSMOS import evaluate_ooc
 print('Running COSMOS')
 evaluate_ooc.main(None)
 
-print("Step 5: Boosting", file=file)
+print("Step 5: Boosting and evaluation", file=file)
 import pandas as pd
 from evaluate_utils import *
 df = pd.read_csv('df_answer_task1.csv')
-print(df.head(5))
 cosmos_iou = pd.read_csv('pred_contexts.txt', header=None)
 cosmos_iou.columns = ['iou']
 df = pd.concat([df, cosmos_iou['iou']], axis=1)
@@ -37,11 +36,11 @@ df = pd.concat([df, cosmos_iou['iou']], axis=1)
 docnli = eval(open('docnli.txt', 'r').read())
 df['nli'] = docnli
 
-print('Evaluating...', file=file)
+print('Evaluating task 1')
 confusion_matrix, result, method_acc = evaluate(df, predict_final)
-print("Confusion matrix", confusion_matrix, file=file)
-print("Acc", result, file=file)
-print("Method_acc", method_acc, file=file)
+# print("Confusion matrix")
+print("Acc", result)
+# print("Method_acc", method_acc, file=file)
 
 
 ######################## Task 2 ############################
@@ -62,3 +61,11 @@ print("Step 3: Use DocNLI model on the collected context", file=file)
 import DocNLI
 DocNLI.main(task_name)
 print("Step 3 completed", file=file)
+
+print("Step 4: Evaluate", file = file)
+from util import read_data
+print("Evaluating task 2")
+pred = pd.read_csv('df_answer_task2.csv')
+df = read_data(task_name)
+ground_truth = df['genuine'].to_list()
+print("Accuracy:", accuracy_score(ground_truth, pred))
