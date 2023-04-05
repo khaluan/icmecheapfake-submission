@@ -322,7 +322,7 @@ def evaluation(dev_dataloader, device, model):
             preds[0] = np.append(preds[0], logits.detach().cpu().numpy(), axis=0)
 
         nb_eval_steps+=1
-        print('eval_steps:', nb_eval_steps, '/', len(dev_dataloader))
+        # print('eval_steps:', nb_eval_steps, '/', len(dev_dataloader))
 
     preds = preds[0]
 
@@ -459,7 +459,7 @@ def main(task_name):
     pretrain_model_dir = 'roberta-large'
     model = RobertaForSequenceClassification(num_labels, pretrain_model_dir, bert_hidden_dim)
     tokenizer = RobertaTokenizer.from_pretrained(pretrain_model_dir, do_lower_case=args.do_lower_case)
-    model.load_state_dict(torch.load('/root/ModelCache/DocNLI.pretrained.RoBERTA.model.pt', map_location=device))
+    model.load_state_dict(torch.load('./cache/DocNLI.pretrained.RoBERTA.model.pt', map_location=device))
 
     model.to(device)
 
@@ -504,11 +504,11 @@ def main(task_name):
         if x is None:
             pred[i] = 1
 
-    print(confusion_matrix(ground_truth, pred, labels = [0, 1]))
-    print(f'precision: {precision_score(ground_truth, pred)}')
-    print(f'recall: {recall_score(ground_truth, pred)}')
-    print(f'accuracy: {accuracy_score(ground_truth, pred)}')
-    print(f'f1: {f1_score(ground_truth, pred)}')
+    # print(confusion_matrix(ground_truth, pred, labels = [0, 1]))
+    # print(f'precision: {precision_score(ground_truth, pred)}')
+    # print(f'recall: {recall_score(ground_truth, pred)}')
+    # print(f'accuracy: {accuracy_score(ground_truth, pred)}')
+    # print(f'f1: {f1_score(ground_truth, pred)}')
 
         
     with open(f"./docnli_{task_name}.txt", 'w+') as file:

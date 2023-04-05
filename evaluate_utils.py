@@ -9,16 +9,16 @@ def evaluate(df, func):
     df['predict'] =  df['result'].apply(lambda x:x[0])
     df['method'] =  df['result'].apply(lambda x:x[1])
     confusion_matrix = pd.crosstab(df['predict'], df['context_label'], rownames=['Predicted'], colnames=['Actual'])
-    print(np.unique(df['predict']))
+    # print(np.unique(df['predict']))
     result = (confusion_matrix[0][0]+confusion_matrix[1][1])/len(df)
-    print('Accuracy:', result)
-    print('Recall:', recall_score( df['context_label'], df['predict']))
-    print('Precision:', precision_score( df['context_label'], df['predict']))
+    # print('Accuracy:', result)
+    # print('Recall:', recall_score( df['context_label'], df['predict']))
+    # print('Precision:', precision_score( df['context_label'], df['predict']))
 
     method_acc = df.groupby('method').apply(lambda g: \
         ((g['context_label']==g['predict']).sum() / len(g),len(g) ))
-    print(method_acc)
-    return confusion_matrix, result, method_acc
+    # print(method_acc)
+    return confusion_matrix, result, method_acc, df['predict']
 
 def predict_baseline(row):
     if row['iou']>0.5:

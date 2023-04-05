@@ -52,7 +52,7 @@ def main(task_name):
         return answers
 
     test_data['answers'] = test_data.progress_apply(process, axis=1)
-    print(test_data.head(3))
+    # print(test_data.head(3))
 
     # Use SBERT-WK to assess the answers
     from .sbert import sbert

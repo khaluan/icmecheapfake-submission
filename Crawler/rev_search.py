@@ -1,11 +1,11 @@
 import os, io
-from config import *
+from Config.config import *
 import logging
-from secret import *
+# from secret import *
 
 reverse_log = logging.getLogger('Reverse log')
 FORMAT = logging.Formatter('%(levelname)s - %(message)s - %(img_path)s')
-LOG_FILE_HANDLER = logging.FileHandler('../log/reverse.log', mode = 'w+')
+LOG_FILE_HANDLER = logging.FileHandler('log/reverse.log', mode = 'w+')
 LOG_FILE_HANDLER.setFormatter(FORMAT)
 reverse_log.addHandler(LOG_FILE_HANDLER)
 

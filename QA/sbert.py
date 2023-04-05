@@ -30,12 +30,12 @@ class Args:
     args.layer_start = layer_start
     args.tasks = tasks
     args.device = device
-args = Args(64,128,42,"binwang/bert-base-nli-stsb","ave_last_hidden",2,4,'sts', 2)
+args = Args(64,128,42,"binwang/bert-base-nli-stsb","ave_last_hidden",2,4,'sts', 0)
 # -----------------------------------------------
 # Set device
 # torch.cuda.set_device(2)
 # device = torch.device("cuda", 2)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu", 1)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu", 0)
 args.device = device
 
 # -----------------------------------------------

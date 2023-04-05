@@ -4,10 +4,12 @@ FROM nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 ENV DEBIAN_FRONTEND="noninteractive" \
     TZ="Asia/Vietnam"
 
-WORKDIR /icmecheapfakes-src/
+WORKDIR /icmecheapfakes-src
 
 # Copy Dependencies
 COPY . ./
+
+# COPY models/ ~/.cache/huggingface/hub/models--sshleifer--distilbart-cnn-12-6/
 
 # Install Python
 RUN apt-get update && \
@@ -29,6 +31,12 @@ RUN python3 -m pip install --upgrade pip==21.2.2 && \
 
 RUN pip3 install torch==1.12.0+cu116 torchvision==0.13.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
 
+RUN pip3 install -e detectron2
+RUN pip3 install google-cloud-vision
+RUN pip3 install protobuf==3.19.6
+# RUN pip3 install --no-deps google-cloud-vision
+
+# RUN mkdir models && cd cache && gdown 12kNONo0jgktxU0vWtV3Z2ZrCrB3DJPVj
 
 ENTRYPOINT []
 CMD [ "python3", "main.py" ]

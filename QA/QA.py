@@ -1,8 +1,8 @@
 from transformers import pipeline
 
-answerer = pipeline('question-answering', model = 'distilbert-base-cased-distilled-squad', device=2)
+answerer = pipeline('question-answering', model = 'distilbert-base-cased-distilled-squad', device=0)
 
-def answer(context: str, caption1: str, caption2: str, transform_question=None) -> tuple[str, str]:
+def answer(context: str, caption1: str, caption2: str, transform_question=None):
     if transform_question:
         caption1 = transform_question(caption1)
         caption2 = transform_question(caption2)
@@ -10,7 +10,7 @@ def answer(context: str, caption1: str, caption2: str, transform_question=None) 
     answer2 = answerer(context=context, question=caption2)['answer']
     return (answer1, answer2)
 
-def answer_no_context(context: str, caption1: str, caption2: str, transform_question=None) -> tuple[str, str]:
+def answer_no_context(context: str, caption1: str, caption2: str, transform_question=None):
     if transform_question:
         caption1 = transform_question(caption1)
         caption2 = transform_question(caption2)
