@@ -1,6 +1,6 @@
 from transformers import pipeline
 
-summarizer = pipeline("summarization", max_length=100)
+summarizer = pipeline("summarization", max_length=100, device=0)
 
 def summary_text(input):
     return summarizer(input)[0]['summary_text']

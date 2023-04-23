@@ -57,7 +57,7 @@ def parse_content(response, post):
         sentences = par.text.split('\n')
         for s in sentences:
             if relevant(s.strip(), context):
-                context += ' ' + s
+                context += '\n' + s
 
     if not context:
         crawler_log.error('No content', extra=post)    

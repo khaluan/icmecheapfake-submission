@@ -35,7 +35,8 @@ RUN pip3 install -e detectron2
 RUN pip3 install google-cloud-vision
 RUN pip3 install protobuf==3.19.6
 # RUN pip3 install --no-deps google-cloud-vision
-
+RUN pip3 install https://github.com/amazon-science/ReFinED/archive/refs/tags/V1.zip
+RUN pip install https://huggingface.co/spacy/en_core_web_trf/resolve/main/en_core_web_trf-any-py3-none
 # RUN mkdir models && cd cache && gdown 12kNONo0jgktxU0vWtV3Z2ZrCrB3DJPVj
 
 ENTRYPOINT []

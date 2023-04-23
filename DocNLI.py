@@ -459,7 +459,7 @@ def main(task_name):
     pretrain_model_dir = 'roberta-large'
     model = RobertaForSequenceClassification(num_labels, pretrain_model_dir, bert_hidden_dim)
     tokenizer = RobertaTokenizer.from_pretrained(pretrain_model_dir, do_lower_case=args.do_lower_case)
-    model.load_state_dict(torch.load('./cache/DocNLI.pretrained.RoBERTA.model.pt', map_location=device))
+    model.load_state_dict(torch.load('/root/ModelCache/DocNLI.pretrained.RoBERTA.model.pt', map_location=device))
 
     model.to(device)
 
@@ -504,6 +504,8 @@ def main(task_name):
         if x is None:
             pred[i] = 1
 
+    if task_name == 'task2':
+        pred = [1-x for x in pred] # reverse the output label to match the task.
     # print(confusion_matrix(ground_truth, pred, labels = [0, 1]))
     # print(f'precision: {precision_score(ground_truth, pred)}')
     # print(f'recall: {recall_score(ground_truth, pred)}')
