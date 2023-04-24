@@ -36,7 +36,8 @@ RUN pip3 install google-cloud-vision
 RUN pip3 install protobuf==3.19.6
 # RUN pip3 install --no-deps google-cloud-vision
 RUN pip3 install https://github.com/amazon-science/ReFinED/archive/refs/tags/V1.zip
-RUN pip install https://huggingface.co/spacy/en_core_web_trf/resolve/main/en_core_web_trf-any-py3-none
+RUN pip3 install https://huggingface.co/spacy/en_core_web_trf/resolve/main/en_core_web_trf-any-py3-none-any.whl
+RUN pip3 install https://github.com/explosion/spacy-experimental/releases/download/v0.6.1/en_coreference_web_trf-3.4.0a2-py3-none-any.whl
 # RUN mkdir models && cd cache && gdown 12kNONo0jgktxU0vWtV3Z2ZrCrB3DJPVj
 
 ENTRYPOINT []
