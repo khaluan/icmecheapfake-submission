@@ -1,7 +1,7 @@
-RAW_DIR = '/root/Methods/icmecheapfake-submission/Output/Context_plain_task2'
-ANNOTATION_DIR = '/root/Methods/icmecheapfake-submission/Dataset'
-OUTPUT_DIR = '/root/Methods/icmecheapfake-submission/Output/Context_EL_task2'
-from .config import *
+# RAW_DIR = '/root/Methods/icmecheapfake-submission/Output/Context_plain_task2'
+# ANNOTATION_DIR = '/root/Methods/icmecheapfake-submission/Dataset'
+# OUTPUT_DIR = '/root/Methods/icmecheapfake-submission/Output/Context_EL_task2'
+from Config.config import *
 from os.path import join, isfile
 from os import listdir
 import re
@@ -20,7 +20,7 @@ def get_image_id_from_local_path(filename: str) -> int:
 
 
 def main(task_name):
-    context_files = [join(RAW_DIR[task_name], file) for file in listdir(RAW_DIR[task_name]) if isfile(join(RAW_DIR[task_name], file))]
+    context_files = [join(CONTEXT_DIR[task_name], file) for file in listdir(CONTEXT_DIR[task_name]) if isfile(join(CONTEXT_DIR[task_name], file))]
     context_files = sorted(context_files, key=get_image_id)
 
     context_files_grouped_by_image_id = {key: list(val) for key, val in groupby(context_files, key = get_image_id)}
@@ -32,8 +32,8 @@ def main(task_name):
     # print(filenames)
     filenames = [get_image_id_from_local_path(name) for name in filenames]
     # print(filenames)
-    from coref import resolve_references
-    from entity_linking import entity_linking
+    from .coref import resolve_references
+    from .entity_linking import entity_linking
 
     def parse_entity(row, col_name):
         return entity_linking(row[col_name])
@@ -74,6 +74,6 @@ def main(task_name):
 
                 content['context'] = '\n'.join(new_context)
                 # Change output dir
-                new_filename = name.replace(RAW_DIR[task_name], OUTPUT_DIR[task_name])
+                new_filename = name.replace(RAW_DIR[task_name], CONTEXT_REFINED_DIR[task_name])
                 with open(new_filename, 'w+', encoding='utf8') as file:
                     json.dump(content, file)

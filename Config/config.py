@@ -16,7 +16,12 @@ CONTEXT_REFINED_DIR = {
     'task2': r'./Output/Context_task2' 
 }
 
-max_length = 1024
+INPUT_FILE = { 
+    'task1': r'test_data.json',
+    'task2': r'task_2.json'
+}
+
+max_length = 1023
 
 MAX_POST_PER_SAMPLE = 20
 
