@@ -13,9 +13,10 @@ CONTEXT_DIR = {
 
 CONTEXT_REFINED_DIR = {
     'task1': r'./Output/Context_task1',
-    'task2': r'./Output/Context_EL_task2' 
+    'task2': r'./Output/Context_task2' 
 }
 
+max_length = 1024
 
 MAX_POST_PER_SAMPLE = 20
 
