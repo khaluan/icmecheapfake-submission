@@ -74,6 +74,6 @@ def main(task_name):
 
                 content['context'] = '\n'.join(new_context)
                 # Change output dir
-                new_filename = name.replace(RAW_DIR[task_name], CONTEXT_REFINED_DIR[task_name])
+                new_filename = name.replace(CONTEXT_DIR[task_name], CONTEXT_REFINED_DIR[task_name])
                 with open(new_filename, 'w+', encoding='utf8') as file:
                     json.dump(content, file)
