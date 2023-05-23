@@ -1,6 +1,6 @@
 # Detecting Cheapfakes using Self-query Adaptive-context learning
 
-This is the source code for the paper [Detecting Cheapfakes using Self-query Adaptive-context learning](http://google.com)
+This is the source code for the paper [Detecting Cheapfakes using Self-query Adaptive-context learning](https://doi.org/10.1145/3592571.3592972)
 
 ## Getting started 
 ---
@@ -38,6 +38,21 @@ Notes:
 
 **4. Evaluation**: Run the `main.py` file in the main directory for evaluation result. The steps are well documented in the file.
 
-**5. Build Docker image**: To build docker image, you need to first remove the `Dataset` folder as it will be used to evaluate the hidden test. Then refer to the Docker submission instructions [here](https://github.com/detecting-cheapfakes/detecting-cheapfakes-code).
+**5. Build Docker image**: To build docker image, you need to switch to Docker branch, it would change the configuration suitable to build docker. Then you need to first remove the `Dataset` folder as it will be used to evaluate the hidden test. Then refer to the Docker submission instructions [here](https://github.com/detecting-cheapfakes/detecting-cheapfakes-code).
 
 **6. Run Docker**: Refer to the this [link](https://hub.docker.com/repository/docker/khaluan/icmecheapfakes/general) for instruction to run inference with custom dataset.
+
+
+## Citation
+If you use the code for your research, please cite 
+```
+@inproceedings {...
+    author = {Kha-Luan Pham and Manh-Thien Nguyen and Anh-Duy Tran and Minh-Son Dao and Duc-Tien Dang-Nguyen},
+    title = {Detecting Cheapfakes using Self-Query Adaptive-Context Learning},
+    booktitle = "4th Workshop on Intelligent Cross-Data Analysis and Retrieval (ICDAR ’23)",
+    year      = {2023},
+    publisher = {Association for Computing Machinery},
+    address   = {New York, NY}
+
+}
+```
