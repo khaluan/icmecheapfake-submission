@@ -28,7 +28,7 @@ LOG_FILE_HANDLER.setFormatter(FORMAT)
 parse_log.addHandler(LOG_FILE_HANDLER)
 
 def get_image(filename):
-    return int(re.search('/.*([0-9]+)', filename).group(1))
+    return int(re.search('([0-9]+)\.[a-z]+', filename).group(1))
 
 
 def crawler_main(task_name):
@@ -50,7 +50,7 @@ def crawler_main(task_name):
         
 
 
-    Stage 2:         
+    # Stage 2:         
     with open(f'./Output/url_{task_name}.txt', 'r', encoding='utf8') as input_file:
         content = input_file.readlines()
     # print(len(content))

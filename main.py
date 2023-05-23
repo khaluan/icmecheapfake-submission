@@ -59,10 +59,10 @@ from Crawler import main
 main.crawler_main(task_name)
 print("Crawling finished", file=file)
 
-print("Step 2: Use text summary for text crawling", file=file)
-from Summarization import main
-main.summary(task_name)
-print("Summary finished", file=file)
+print("Step 2: Use entity linking for text crawling", file=file)
+from NER import main    
+main.main(task_name)
+print("Step 2 finished", file=file)
 
 print("Step 3: Use DocNLI model on the collected context", file=file)
 import DocNLI
